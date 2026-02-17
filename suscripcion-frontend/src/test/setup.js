@@ -1,11 +1,5 @@
-// Mock import.meta.env
-global.import = {
-  meta: {
-    env: {
-      VITE_API_URL: '/api'
-    }
-  }
-};
+// Mock environment variable for tests
+process.env.VITE_API_URL = '/api';
 
 jest.mock('axios');
 

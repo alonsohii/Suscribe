@@ -2,7 +2,7 @@ import axios from 'axios';
 import type { RegisterUserResponse, SubscribeResponse, Subscription } from '../types/api';
 
 const getApiUrl = () => {
-  return import.meta.env.VITE_API_URL || '/api';
+  return (typeof import.meta !== 'undefined' && import.meta.env?.VITE_API_URL) || process.env.VITE_API_URL || '/api';
 };
 
 const api = axios.create({
