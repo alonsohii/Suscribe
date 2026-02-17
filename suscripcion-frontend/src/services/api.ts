@@ -2,10 +2,7 @@ import axios from 'axios';
 import type { RegisterUserResponse, SubscribeResponse, Subscription } from '../types/api';
 
 const getApiUrl = () => {
-  if (typeof process !== 'undefined' && process.env.VITE_API_URL) {
-    return process.env.VITE_API_URL;
-  }
-  return '/api';
+  return import.meta.env.VITE_API_URL || '/api';
 };
 
 const api = axios.create({
@@ -36,27 +33,27 @@ api.interceptors.response.use(
 
 export const subscriptionService = {
   async registerUser(name: string, email: string): Promise<RegisterUserResponse> {
-    const { data } = await api.post<RegisterUserResponse>('/user/register', { name, email });
+    const { data } = await api.post<RegisterUserResponse>('/api/user/register', { name, email });
     return data;
   },
 
   async subscribe(userId: number, paymentMethod: string): Promise<SubscribeResponse> {
-    const { data } = await api.post<SubscribeResponse>('/suscripcion/subscribe', { userId, paymentMethod });
+    const { data } = await api.post<SubscribeResponse>('/api/suscripcion/subscribe', { userId, paymentMethod });
     return data;
   },
 
   async getSubscription(userId: number): Promise<Subscription> {
-    const { data } = await api.get<Subscription>(`/suscripcion/${userId}`);
+    const { data } = await api.get<Subscription>(`/api/suscripcion/${userId}`);
     return data;
   },
 
   async getAllSubscriptions(): Promise<Subscription[]> {
-    const { data } = await api.get<Subscription[]>('/suscripcion');
+    const { data } = await api.get<Subscription[]>('/api/suscripcion');
     return data;
   },
 
   async cancelSubscription(userId: number): Promise<{ message: string }> {
-    const { data } = await api.post<{ message: string }>(`/suscripcion/${userId}/cancel`);
+    const { data } = await api.post<{ message: string }>(`/api/suscripcion/${userId}/cancel`);
     return data;
   }
 };
