@@ -2,11 +2,9 @@ import axios from 'axios';
 import type { RegisterUserResponse, SubscribeResponse, Subscription } from '../types/api';
 
 const getApiUrl = () => {
-  // En build time (Vite)
   if (typeof process !== 'undefined' && process.env.VITE_API_URL) {
     return process.env.VITE_API_URL;
   }
-  // Fallback para producción: usar URL relativa
   return '/api';
 };
 
