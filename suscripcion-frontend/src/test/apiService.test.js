@@ -12,7 +12,7 @@ describe('API Service', () => {
 
       const result = await subscriptionService.registerUser('Juan', 'juan@test.com');
 
-      expect(global.mockAxiosInstance.post).toHaveBeenCalledWith('/api/user/register', {
+      expect(global.mockAxiosInstance.post).toHaveBeenCalledWith('/user/register', {
         name: 'Juan',
         email: 'juan@test.com',
       });
@@ -48,7 +48,7 @@ describe('API Service', () => {
 
       const result = await subscriptionService.subscribe(1, 'credit_card');
 
-      expect(global.mockAxiosInstance.post).toHaveBeenCalledWith('/api/suscripcion/subscribe', {
+      expect(global.mockAxiosInstance.post).toHaveBeenCalledWith('/suscripcion/subscribe', {
         userId: 1,
         paymentMethod: 'credit_card',
       });
@@ -81,7 +81,7 @@ describe('API Service', () => {
 
       const result = await subscriptionService.getSubscription(1);
 
-      expect(global.mockAxiosInstance.get).toHaveBeenCalledWith('/api/suscripcion/1');
+      expect(global.mockAxiosInstance.get).toHaveBeenCalledWith('/suscripcion/1');
       expect(result).toEqual(mockResponse.data);
     });
 
