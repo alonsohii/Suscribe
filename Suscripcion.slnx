@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="Sucropcion.Domain/Sucripcion.Domain.csproj" Id="5e9d41ca-37b8-45b3-9119-1efaba4edbbe" />
+  <Project Path="Suscripcion.Api/Suscripcion.Api.csproj" Id="21c04ea8-0bac-4c7b-be54-d2720eb1cc32" />
+  <Project Path="Suscripcion.Application/Suscripcion.Application.csproj" Id="beeb9320-5011-412a-9339-d95992b17060" />
+  <Project Path="Suscripcion.Infrastructure/Suscripcion.Infrastructure.csproj" Id="710489db-f818-4313-9bd7-71cda026592a" />
+  <Project Path="Suscripcion.Test/Suscripcion.Test.csproj" Id="d9d58521-73c6-48a6-a01b-c59d6a1af1bf" />
+</Solution>

@@ -1,0 +1,6 @@
+@echo off
+echo Reconstruyendo imagen de tests...
+docker build --no-cache -f Dockerfile.test -t suscripcion-frontend-tests .
+echo.
+echo Ejecutando tests...
+docker run --rm suscripcion-frontend-tests
